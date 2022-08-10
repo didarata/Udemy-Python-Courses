@@ -1,13 +1,17 @@
-from asyncio.windows_events import NULL
+import mysql.connector
 
-from mysqlx.protobuf.mysqlx_crud_pb2 import TABLE
+mydb = mysql.connector.connect(
+    host='localhost',
+    user='root',
+    password='3461',
+    port='3306',
+)
 
-CREATE TABLE IF NOT EXISTS jobs (
-    jobs_id INT AUTO_INCREMENT PRIMARY KEY,
-    titles VARCHAR(255) NOT NULL,
-    start_date DATE,
-    due_date DATE,
-    status TINYINT,NOT NULL,
-    description TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB;
+# mycursor= mydb.cursor()
+# mycursor.execute("CREATE DATABASE testdb")
+
+mycursor= mydb.cursor()
+mycursor.execute("SHOW DATABASES")
+
+for db in mycursor:
+    print(db)
