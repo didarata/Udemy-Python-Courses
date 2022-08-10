@@ -5,15 +5,16 @@ mydb = mysql.connector.connect(
     user='root',
     password='3461',
     port='3306',
-    database='python.test'
+    database='baba'
 )
 
-mycursor = mydb.cursor()
 
-mycursor.execute('SELECT * FROM users')
-
-users = mycursor.fetchall()
-
-for user in users:
-    print('Username ' + user[1])
-    print('Password ' + user[2])
+# mycursor = mydb.cursor()
+#
+# mycursor.execute('SELECT * FROM users')
+#
+# users = mycursor.fetchall()
+#
+# for user in users:
+#     print('Username ' + user[1])
+#     print('Password ' + user[2])
